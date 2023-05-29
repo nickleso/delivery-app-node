@@ -2,40 +2,13 @@ const { Schema, model } = require("mongoose");
 
 const orderModel = new Schema(
   {
-    // title: {
-    //   type: String,
-    //   required: [true, "Set item title"],
-    // },
-    // price: {
-    //   type: Number,
-    //   default: 0,
-    //   required: [true, "Set item price"],
-    // },
-    // category: {
-    //   type: String,
-    //   required: [true, "Set category"],
-    // },
-    // image: {
-    //   type: String,
-    // },
-    // description: {
-    //   type: String,
-    //   required: [true, "Set item description"],
-    // },
-    // quantity: {
-    //   type: Number,
-    //   default: 1,
-    //   required: [true, "Set item quantity"],
-    // },
-    // totalPrice: {
-    //   type: Number,
-    //   default: 0,
-    //   required: [true, "Set item totalPrice"],
-    // },
-
     cart: {
       type: Array,
       required: [true, "Set cart"],
+    },
+    cartTotal: {
+      type: Number,
+      required: [true, "Set cart total"],
     },
 
     name: {
