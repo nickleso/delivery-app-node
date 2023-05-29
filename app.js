@@ -3,6 +3,7 @@ const logger = require("morgan");
 const cors = require("cors");
 
 const ordersRouter = require("./routes/api/ordersRouter");
+const goodsRouter = require("./routes/api/goodsRouter");
 
 const {
   noDataByIdError,
@@ -11,7 +12,6 @@ const {
 } = require("./helpers/errorHandlers");
 
 const app = express();
-
 const formatsLogger = app.get("env") === "development" ? "dev" : "short";
 
 app.use(logger(formatsLogger));
@@ -19,7 +19,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/orders", ordersRouter);
-// app.use("/shops", shopsRouter);
+app.use("/goods", goodsRouter);
 
 app.use((req, res) => {
   res.status(404).json({

@@ -9,12 +9,6 @@ const getOrderByUserEmail = async (req, res, next) => {
       email: { $regex: pattern, $options: "i" },
     });
 
-    // if (!result.length) {
-    //   return res.status(404).json({
-    //     message: "no data found",
-    //     code: 404,
-    //   });
-    // }
     return res.status(200).json({
       message: "order by user email",
       code: 200,
