@@ -1,19 +1,15 @@
 const { Order } = require("../models/orderModel");
 
 const createOrder = async (req, res, next) => {
-  const { _id } = req.user;
-  const notice = req.body;
-
-  const newNotice = !!req.file
-    ? { image: req.file.path, owner: _id, ...notice }
-    : { owner: _id, ...notice };
+  const order = req.body;
+  console.log(order);
 
   try {
-    const result = new Order(newNotice);
+    const result = new Order(order);
     await result.save();
 
     return res.status(201).json({
-      message: "notice created",
+      message: "order created",
       code: 201,
       data: result,
     });

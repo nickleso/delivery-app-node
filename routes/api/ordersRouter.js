@@ -1,9 +1,10 @@
 const express = require("express");
 const ordersRouter = express.Router();
 
-const {
-  addUsersValidation,
-} = require("../../middlewares/usersValidationMdlwr");
+// const {
+//   addUsersValidation,
+// } = require("../../middlewares/usersValidationMdlwr");
+
 const { ctrlWrapper } = require("../../middlewares/ctrlWrapper");
 
 const {
@@ -15,10 +16,10 @@ const {
 
 ordersRouter.get("/", ctrlWrapper(getAllOrders));
 
-ordersRouter.get("/:name", ctrlWrapper(getOrderByUserName));
+ordersRouter.get("/name/:name", ctrlWrapper(getOrderByUserName));
 
-ordersRouter.get("/:email", ctrlWrapper(getOrderByUserEmail));
+ordersRouter.get("/email/:email", ctrlWrapper(getOrderByUserEmail));
 
-ordersRouter.post("/orders", addUsersValidation, ctrlWrapper(createOrder));
+ordersRouter.post("/create", ctrlWrapper(createOrder));
 
 module.exports = ordersRouter;
