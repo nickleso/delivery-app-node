@@ -1,10 +1,6 @@
 const express = require("express");
 const ordersRouter = express.Router();
 
-// const {
-//   addUsersValidation,
-// } = require("../../middlewares/usersValidationMdlwr");
-
 const { ctrlWrapper } = require("../../middlewares/ctrlWrapper");
 
 const {
